@@ -7,9 +7,7 @@ import { useSWRConfig } from 'swr'
 
 import clsx from 'clsx'
 
-import { Disclosure, Tab } from '@headlessui/react'
-import { StarIcon } from '@heroicons/react/20/solid'
-import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
+import { Tab } from '@headlessui/react'
 import { formatCurrency } from '@/lib/utils'
 import { addToCart } from '@/lib/swell/cart'
 import { Blinker } from '@/components/ui/loading'
@@ -103,28 +101,6 @@ const Product = ({ product }) => {
               <p className='text-3xl tracking-tight text-stone-900'>
                 {formatCurrency({ amount: product.price })}
               </p>
-            </div>
-
-            {/* Reviews */}
-            <div className='mt-3'>
-              <h3 className='sr-only'>Reviews</h3>
-              <div className='flex items-center'>
-                <div className='flex items-center'>
-                  {[0, 1, 2, 3, 4].map(rating => (
-                    <StarIcon
-                      key={rating}
-                      className={clsx(
-                        (product.rating || 4) > rating
-                          ? 'text-yellow-500'
-                          : 'text-stone-300',
-                        'h-5 w-5 flex-shrink-0'
-                      )}
-                      aria-hidden='true'
-                    />
-                  ))}
-                </div>
-                <p className='sr-only'>{product.rating} out of 5 stars</p>
-              </div>
             </div>
 
             <div className='mt-6'>
